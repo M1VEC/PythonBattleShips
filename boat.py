@@ -2,13 +2,13 @@ import random
 
 class boat:
 
-    def __init__(self, size, boatLength, board):   #add board seperate so I can add previous boat boards
+    def __init__(self, size, boatLength, board):
         self.boardSizeX = size[0]
         self.boardSizeY = size[1]
         self.boatLength = boatLength
         self.boatBoard = board
         return 
-    
+        
     def addStartingPoint(self):
         self.startPointX = random.randint(1,(self.boardSizeX-1))
         self.startPointY = random.randint(1,(self.boardSizeY-1))
@@ -54,8 +54,6 @@ class boat:
                     return self.addStartingPoint()
             for num in tempBoatCoordinates:
                 self.setCoOrrdinate([num, self.startPointY])    
-
-
 
     def setCoOrrdinate(self, coOrdinate):
         self.boatBoard[coOrdinate[0], coOrdinate[1]] = '{:2}'.format("B")

@@ -1,28 +1,19 @@
+from addBoatsToBoard import addBoatsToBoard
 from setGameBoard import setGameBoard
 from gameDifficulty import gameDifficulty
 from boat import boat
 
 def main():
-
     gameMode = gameDifficulty('normal')
     boardSize = gameMode.getSize()
   
     gameBoard = setGameBoard(boardSize)
     gameBoard.createBoard()
-
-    boatLength = 3
-    addBoat = boat(boardSize, boatLength, gameBoard.returnBoard())
-    addBoat.addStartingPoint()
     
-    boatLength = 5
-    addBoat = boat(boardSize, boatLength, gameBoard.returnBoard())
-    addBoat.addStartingPoint()
+    addBoats = addBoatsToBoard(gameMode, gameBoard)
+    addBoats.addABoat()
     
-    boatLength = 6
-    addBoat = boat(boardSize, boatLength, gameBoard.returnBoard())
-    addBoat.addStartingPoint()
-
-    print(addBoat.returnBoatBoard())
+    print(addBoats.returnBoatBoard())
     
-
+   
 main()

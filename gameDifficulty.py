@@ -4,6 +4,7 @@ class gameDifficulty:
         self.gameMode = difficulty
         self.size = []
         self.boatCount = 0
+        self.boatLengths = []
         return self.setMode()
 
     def setMode(self):
@@ -16,18 +17,21 @@ class gameDifficulty:
         return
 
     def setEasy(self):
-        self.size = [5,5]
+        self.size = [6,6]
         self.boatCount = 2
+        self.boatLengths = [2, 3]
         return
 
     def setNormal(self):
         self.size = [10,10]
-        self.boatCount = 3
+        self.boatCount = 5
+        self.boatLengths = [3, 4, 2, 3, 4]
         return
 
     def setHard(self):
         self.size = [13,13]
-        self.boatCount = 4
+        self.boatCount = 7
+        self.boatLengths = [3, 4, 2, 5, 1, 4, 3]
         return
 
     def getSize(self):
@@ -36,4 +40,8 @@ class gameDifficulty:
     def getBoatCount(self):
         return self.boatCount
 
+    def getBoatLengths(self):
+        return self.boatLengths
+    
+    
     

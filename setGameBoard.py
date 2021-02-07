@@ -25,6 +25,3 @@ class setGameBoard:
 
     def returnCoOrdinateContents(self, AxisX, AxisY):
         return  self.board[AxisX, AxisY]
-
-    # def setCoOrrdinate(self, coOrdinate):
-    #     self.board[coOrdinate[0], coOrdinate[1]] = 'B'
