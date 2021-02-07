@@ -10,9 +10,14 @@ def main():
     gameBoard = setGameBoard(boardSize)
     gameBoard.createBoard()
 
-    boatLength = 3
+    boatLength = 5
     addBoat = boat(boardSize, boatLength, gameBoard.returnBoard())
-    addBoat.addStartingPoint()    
+    addBoat.addStartingPoint()
+
+    boatLength = 3
+    addBoat1 = boat(boardSize, boatLength, addBoat.returnBoatBoard())
+    addBoat1.addStartingPoint()
+    print(addBoat1.returnBoatBoard())    
     
 
 main()
