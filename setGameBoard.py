@@ -1,6 +1,6 @@
 import numpy as np
 
-class gameBoard:
+class setGameBoard:
 
     def __init__(self, boardSize):
         self.boardSizeX = boardSize[0]
@@ -26,5 +26,5 @@ class gameBoard:
     def returnCoOrdinateContents(self, AxisX, AxisY):
         return  self.board[AxisX, AxisY]
 
-    def setCoOrrdinate(self, coOrdinate):
-        self.board[coOrdinate[0], coOrdinate[1]] = 'B'
+    # def setCoOrrdinate(self, coOrdinate):
+    #     self.board[coOrdinate[0], coOrdinate[1]] = 'B'
