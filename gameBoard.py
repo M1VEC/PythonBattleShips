@@ -9,17 +9,20 @@ class gameBoard:
         return
 
     def createBoard(self):
-        self.board = np.full((self.boardSizeX, self.boardSizeY),".")
+        # self.board = np.full((self.boardSizeX, self.boardSizeY),".")
+        self.board = np.full((self.boardSizeX, self.boardSizeY),'{:2}'.format(".."))
+
 
     def returnBoard(self):
         return self.board
 
     def insertShip(self, xaxis, yaxis):
-        self.board[xaxis,yaxis] = "X"
+        self.board[xaxis,yaxis] = '{:2}'.format("X")
 
     def labelAxis(self):
         for label in range(0,self.boardSizeX):
-            self.board[0,label] = str(label)
+            self.board[0,label] = '{:2}'.format(label)
+
         for label in range(0,self.boardSizeY):
-            self.board[label,0] = str(label)
+            self.board[label,0] = '{:2}'.format(label)
         return
