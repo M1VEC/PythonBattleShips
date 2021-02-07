@@ -7,19 +7,15 @@ class boat:
         self.boardSizeY = size[1]
         self.boatLength = boatLength
         self.boatBoard = board
-        self.index = 1
         return 
-    
     
     def addStartingPoint(self):
         self.startPointX = random.randint(1,(self.boardSizeX-1))
         self.startPointY = random.randint(1,(self.boardSizeY-1))
-        
-        if self.returnCoOrdinateContents(self.startPointX,self.startPointY) == '..':
+        if self.returnCoOrdinateContents(self.startPointX, self.startPointY) == '..':
             self.addToBoat()
         else:
-            self.addStartingPoint()
-
+            return self.addStartingPoint()
 
     def addToBoat(self):
         options = ["horizontal", "vertical"]
@@ -30,50 +26,42 @@ class boat:
                     self.addToBoatVertical()    
         return    
 
-
-
     def addToBoatHorizontal(self):
-        if (self.startPointY + self.boatLength) <= self.boardSizeY:
-            print(self.startPointY + self.boatLength)
+        if (self.startPointY + self.boatLength) > self.boardSizeY:
+            return self.addStartingPoint()
         else:
-            self.addStartingPoint()
-        return
-
-        # if self.startPointY +1 != 9:
-        #     if self.returnCoOrdinateContents(self.startPointX,self.startPointY +1) == '..':
-        #         self.setCoOrrdinate([self.startPointX,self.startPointY +1])
-        #         self.startPointY += 1
-        #         self.index += 1
-        # else:
-        #     self.setCoOrrdinate([self.startPointX,self.startPointY -self.index])
-        #     self.startPointY -= 1
-        # return
+            tempBoatCoordinates = []
+            for num in range(0,self.boatLength):
+                if self.returnCoOrdinateContents(self.startPointX, self.startPointY) == '..':
+                    tempBoatCoordinates.append(self.startPointY)
+                    self.startPointY += 1
+                else:
+                    return self.addStartingPoint()            
+            for num in tempBoatCoordinates:
+                self.setCoOrrdinate([self.startPointX, num])    
 
 
     def addToBoatVertical(self):
-        if (self.startPointX + self.boatLength) <= self.boardSizeX:
-            print(self.startPointX + self.boatLength)
+        if (self.startPointX + self.boatLength) > self.boardSizeX:
+            return self.addStartingPoint()
         else:
-            self.addStartingPoint()
-        return
-        # if self.startPointX +1 != 9:
-        #     if self.returnCoOrdinateContents(self.startPointX +1,self.startPointY) == '..':
-        #         self.setCoOrrdinate([self.startPointX +1,self.startPointY])
-        #         self.startPointX += 1
-        #         self.index += 1
-        # else:
-        #     self.setCoOrrdinate([self.startPointX -self.index,self.startPointY])
-        #     self.startPointX -= 1
-        # return
+            tempBoatCoordinates = []    
+            for num in range(0,self.boatLength):
+                if self.returnCoOrdinateContents(self.startPointX, self.startPointY) == '..':
+                    tempBoatCoordinates.append(self.startPointX)
+                    self.startPointX += 1
+                else:
+                    return self.addStartingPoint()
+            for num in tempBoatCoordinates:
+                self.setCoOrrdinate([num, self.startPointY])    
+
 
 
     def setCoOrrdinate(self, coOrdinate):
         self.boatBoard[coOrdinate[0], coOrdinate[1]] = '{:2}'.format("B")
 
-
     def returnCoOrdinateContents(self, AxisX, AxisY):
         return  self.boatBoard[AxisX, AxisY]
-
 
     def returnBoatBoard(self):
         return self.boatBoard

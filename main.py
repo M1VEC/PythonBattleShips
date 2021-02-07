@@ -13,8 +13,16 @@ def main():
     boatLength = 3
     addBoat = boat(boardSize, boatLength, gameBoard.returnBoard())
     addBoat.addStartingPoint()
+    
+    boatLength = 5
+    addBoat = boat(boardSize, boatLength, gameBoard.returnBoard())
+    addBoat.addStartingPoint()
+    
+    boatLength = 6
+    addBoat = boat(boardSize, boatLength, gameBoard.returnBoard())
+    addBoat.addStartingPoint()
 
-  
+    print(addBoat.returnBoatBoard())
     
 
 main()
