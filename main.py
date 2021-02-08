@@ -10,7 +10,7 @@ def main():
     board = setGameBoard(gameMode.getSize())
     
     boats = addBoats(gameMode, board)
-    guess = [5,4]
+    guess = [10,11]
     newGame = game(board, boats, guess)
 
    

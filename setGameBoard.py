@@ -8,7 +8,7 @@ class setGameBoard:
         self.boardSizeX = boardSize[0]
         self.boardSizeY = boardSize[1]
         self.gameBoard =[]                      #gameBoard refers to the board with boat locations
-        self.userBoard = []                     #gameBoard refers to the board with that the user interacts with
+        self.userBoard = []                     #userBoard refers to the board that the user interacts with
         return self.createBoard()
 
     def createBoard(self):
@@ -24,9 +24,6 @@ class setGameBoard:
             self.gameBoard[label,0] = '{:2}'.format(label)
         return
 
-    def getCoOrdinateContents(self, AxisX, AxisY):
-        return  self.board[AxisX, AxisY]
-        
     def getGameBoard(self):
         return self.gameBoard
 

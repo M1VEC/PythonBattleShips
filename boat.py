@@ -8,7 +8,8 @@ class boat:
         self.boatLength = boatLength
         self.gameBoard = board
         return 
-        
+
+    #Choose starting point on board for the boat    
     def addStartingPoint(self):
         self.startPointX = random.randint(1,(self.boardSizeX-1))
         self.startPointY = random.randint(1,(self.boardSizeY-1))
@@ -17,6 +18,7 @@ class boat:
         else:
             return self.addStartingPoint()
 
+    #Randomly chooses direction the boat will go
     def addToBoat(self):
         options = ["horizontal", "vertical"]
         if self.boatLength > 1:
@@ -36,7 +38,8 @@ class boat:
                     tempBoatCoordinates.append(self.startPointY)
                     self.startPointY += 1
                 else:
-                    return self.addStartingPoint()            
+                    return self.addStartingPoint()
+            #If it has got to this point, it means it is within the grid limit and no other boat is present so will set coordinates                    
             for num in tempBoatCoordinates:
                 self.setCoOrrdinate([self.startPointX, num])    
 
@@ -52,6 +55,7 @@ class boat:
                     self.startPointX += 1
                 else:
                     return self.addStartingPoint()
+            #If it has got to this point, it means it is within the grid limit and no other boat is present so will set coordinates                    
             for num in tempBoatCoordinates:
                 self.setCoOrrdinate([num, self.startPointY])    
 

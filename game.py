@@ -10,10 +10,15 @@ class game:
         return self.runGame()
 
     def runGame(self):
-        print(self.getGameBoardContents(5,4))
-        self.setUserBoard([5,5],"B")
-        print(self.gameBoard)
-        print(self.userBoard)
+        print(self.getGameBoardContents(self.userGuessX, self.userGuessY))
+        if self.getGameBoardContents(self.userGuessX, self.userGuessY) == 'B ':
+            print("HIT")
+        elif self.getGameBoardContents(self.userGuessX, self.userGuessY) == 'M ':
+            print("Already tried")
+        elif self.getGameBoardContents(self.userGuessX, self.userGuessY) == 'H ':
+            print("Already hit")    
+        else:
+            print("MISS")
         return
 
     def getUserBoardContents(self, AxisX, AxisY):
