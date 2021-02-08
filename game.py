@@ -21,6 +21,16 @@ class game:
             print("MISS")
         return
 
+    def checkShot(self):
+        return
+
+    def hit(self):
+        return
+
+    def miss(self):
+        return
+
+
     def getUserBoardContents(self, AxisX, AxisY):
         return self.userBoard[AxisX, AxisY]
 
