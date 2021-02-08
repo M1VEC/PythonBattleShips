@@ -6,6 +6,7 @@ class setGameBoard:
         self.boardSizeX = boardSize[0]
         self.boardSizeY = boardSize[1]
         self.board =[]
+        self.userBoard = []
         return self.createBoard()
 
     def createBoard(self):

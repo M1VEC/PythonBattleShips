@@ -31,7 +31,7 @@ class gameDifficulty:
     def setHard(self):
         self.size = [13,13]
         self.boatCount = 7
-        self.boatLengths = [3, 4, 2, 5, 1, 4, 3]
+        self.boatLengths = [3, 4, 2, 5, 2, 4, 3]
         return
 
     def getSize(self):
