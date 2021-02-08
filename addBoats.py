@@ -7,8 +7,7 @@ class addBoats:
         self.numberOfBoats = gameMode.getBoatCount()
         self.boatLengths = gameMode.getBoatLengths()
         self.boat = boat
-        self.gameBoard = board
-        self.boatBoard = self.gameBoard
+        self.gameBoard = board.getGameBoard()
         return self.addGameBoats()
     
     def addGameBoats(self):
@@ -16,12 +15,12 @@ class addBoats:
             self.createBoat(self.boatLengths[num])
     
     def createBoat(self, boatLength):
-        addBoat = self.boat(self.boardSize, boatLength, self.gameBoard.getGameBoard())
+        addBoat = self.boat(self.boardSize, boatLength, self.gameBoard)
         addBoat.addStartingPoint()
-        self.boatBoard = addBoat.getBoatBoard()
+        self.gameBoard = addBoat.getGameBoard()
         
-    def getBoatBoard(self):
-        return self.boatBoard
+    def getGameBoard(self):
+        return self.gameBoard
 
     def getBoatCount(self):
         return self.numberOfBoats

@@ -13,9 +13,7 @@ def main():
     guess = [5,4]
     newGame = game(board, boats, guess)
 
-    print(board.getGameBoard())
-    print(board.getUserBoard())
-    
+   
     
    
 main()

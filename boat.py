@@ -6,7 +6,7 @@ class boat:
         self.boardSizeX = size[0]
         self.boardSizeY = size[1]
         self.boatLength = boatLength
-        self.boatBoard = board
+        self.gameBoard = board
         return 
         
     def addStartingPoint(self):
@@ -56,10 +56,10 @@ class boat:
                 self.setCoOrrdinate([num, self.startPointY])    
 
     def setCoOrrdinate(self, coOrdinate):
-        self.boatBoard[coOrdinate[0], coOrdinate[1]] = '{:2}'.format("B")
+        self.gameBoard[coOrdinate[0], coOrdinate[1]] = '{:2}'.format("B")
 
     def getCoOrdinateContents(self, AxisX, AxisY):
-        return  self.boatBoard[AxisX, AxisY]
+        return  self.gameBoard[AxisX, AxisY]
 
-    def getBoatBoard(self):
-        return self.boatBoard
+    def getGameBoard(self):
+        return self.gameBoard
