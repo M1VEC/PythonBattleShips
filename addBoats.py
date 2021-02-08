@@ -19,7 +19,6 @@ class addBoats:
         addBoat = self.boat(self.boardSize, boatLength, self.gameBoard.returnBoard())
         addBoat.addStartingPoint()
         self.boatBoard = addBoat.returnBoatBoard()
-
         
     def returnBoatBoard(self):
         return self.boatBoard

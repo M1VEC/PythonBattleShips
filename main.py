@@ -6,13 +6,13 @@ from gameDifficulty import gameDifficulty
 def main():
     gameMode = gameDifficulty('hard')
     gameBoard = setGameBoard(gameMode.getSize())
-    userBoard = gameBoard.returnBoard()
+    userBoard = gameBoard.returnUserBoard()
     
     boats = addBoats(gameMode, gameBoard)
     
     newGame = game(gameBoard, boats)
 
-
+    print(userBoard)
     print(boats.returnBoatBoard())
     
    

@@ -1,4 +1,5 @@
 import numpy as np
+import copy
 
 class setGameBoard:
 
@@ -12,9 +13,13 @@ class setGameBoard:
     def createBoard(self):
         self.board = np.full((self.boardSizeX, self.boardSizeY),'{:2}'.format(".."))
         self.labelAxis()
+        self.userBoard = copy.deepcopy(self.board)
 
     def returnBoard(self):
         return self.board
+
+    def returnUserBoard(self):
+        return self.userBoard    
 
     def labelAxis(self):
         for label in range(0,self.boardSizeX):
