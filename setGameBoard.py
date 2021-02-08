@@ -6,7 +6,7 @@ class setGameBoard:
         self.boardSizeX = boardSize[0]
         self.boardSizeY = boardSize[1]
         self.board =[]
-        return
+        return self.createBoard()
 
     def createBoard(self):
         self.board = np.full((self.boardSizeX, self.boardSizeY),'{:2}'.format(".."))

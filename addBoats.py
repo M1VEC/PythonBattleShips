@@ -1,6 +1,6 @@
 from boat import boat
 
-class addBoatsToBoard:
+class addBoats:
     
     def __init__(self, gameMode, gameBoard):
         self.boardSize = gameMode.getSize()
@@ -9,9 +9,9 @@ class addBoatsToBoard:
         self.boat = boat
         self.gameBoard = gameBoard
         self.boatBoard = gameBoard
-        return
+        return self.addGameBoats()
     
-    def addABoat(self):
+    def addGameBoats(self):
         for num in range(0,self.numberOfBoats):
             self.createBoat(self.boatLengths[num])
     
