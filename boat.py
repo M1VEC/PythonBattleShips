@@ -12,7 +12,7 @@ class boat:
     def addStartingPoint(self):
         self.startPointX = random.randint(1,(self.boardSizeX-1))
         self.startPointY = random.randint(1,(self.boardSizeY-1))
-        if self.returnCoOrdinateContents(self.startPointX, self.startPointY) == '..':
+        if self.getCoOrdinateContents(self.startPointX, self.startPointY) == '..':
             self.addToBoat()
         else:
             return self.addStartingPoint()
@@ -32,7 +32,7 @@ class boat:
         else:
             tempBoatCoordinates = []
             for num in range(0,self.boatLength):
-                if self.returnCoOrdinateContents(self.startPointX, self.startPointY) == '..':
+                if self.getCoOrdinateContents(self.startPointX, self.startPointY) == '..':
                     tempBoatCoordinates.append(self.startPointY)
                     self.startPointY += 1
                 else:
@@ -47,7 +47,7 @@ class boat:
         else:
             tempBoatCoordinates = []    
             for num in range(0,self.boatLength):
-                if self.returnCoOrdinateContents(self.startPointX, self.startPointY) == '..':
+                if self.getCoOrdinateContents(self.startPointX, self.startPointY) == '..':
                     tempBoatCoordinates.append(self.startPointX)
                     self.startPointX += 1
                 else:
@@ -58,8 +58,8 @@ class boat:
     def setCoOrrdinate(self, coOrdinate):
         self.boatBoard[coOrdinate[0], coOrdinate[1]] = '{:2}'.format("B")
 
-    def returnCoOrdinateContents(self, AxisX, AxisY):
+    def getCoOrdinateContents(self, AxisX, AxisY):
         return  self.boatBoard[AxisX, AxisY]
 
-    def returnBoatBoard(self):
+    def getBoatBoard(self):
         return self.boatBoard
