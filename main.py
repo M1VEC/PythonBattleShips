@@ -14,9 +14,9 @@ def main():
 
     for num in range(1,10):
         guess = [num, 5]
-        newGame.runGame(guess)
+        print(newGame.runGame(guess))
         guessAgain = [2, 10 -num]
-        newGame.runGame(guessAgain)
+        print(newGame.runGame(guessAgain))
 
 
     print(board.getUserBoard())

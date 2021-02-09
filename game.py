@@ -13,25 +13,24 @@ class game:
         if self.shot == 'B ':
            return self.hit()
         else:
-            self.noHit()
+            return self.noHit()
 
     def hit(self):
         self.setBothBoards(self.userGuess, 'H ')
-        return
+        return 'H'
 
     def noHit(self):
         self.checkShot = self.getUserBoardContents(self.userGuess)
         if self.checkShot == '..':
             return  self.miss()
         elif self.checkShot == 'H ':
-            return print("Previous Hit")    
+            return 'PH'
         elif self.checkShot == '  ':
-            print("Previous Miss") 
-        return
+            return 'PM'
 
     def miss(self):
         self.setBothBoards(self.userGuess, ' ')
-        return
+        return 'M'
 
     def setBothBoards(self, coOrdinates, prompt):
         self.userBoard[coOrdinates[0], coOrdinates[1]] = '{:2}'.format(prompt)
