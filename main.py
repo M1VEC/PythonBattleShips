@@ -18,6 +18,9 @@ def main():
         guessAgain = [2, 10 -num]
         print(newGame.runGame(guessAgain))
 
-
-    print(board.getUserBoard())
+    print("Game Board")
+    print(board.getGameBoard())
+    #need to check if any boats are left or count down how many are left
+    #need to keep track of shots taken
+    #maybe add hit to miss ratio or accuracy percentage
 main()
