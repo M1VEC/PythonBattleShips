@@ -1,13 +1,12 @@
-class gameDifficulty:
+class gameSettings:
 
-    def __init__(self, difficulty):
-        self.gameMode = difficulty
+    def __init__(self):
         self.size = []
         self.boatCount = 0
         self.boatLengths = []
-        return self.setMode()
 
-    def setMode(self):
+    def setMode(self, gameMode):
+        self.gameMode = gameMode
         if self.gameMode == 'easy':
             return self.setEasy()
         elif self.gameMode == 'normal':
