@@ -6,14 +6,18 @@ from userInput import userInput
 
 def main():
     userInput 
-    gameMode = gameDifficulty('hard')
+    gameMode = gameDifficulty('normal')
     board = setGameBoard(gameMode.getSize())
-    
     boats = addBoats(gameMode, board)
-    guess = [10,11]
-    newGame = game(board, boats, guess)
 
-   
-    
-   
+    newGame = game(board, boats)
+
+    for num in range(1,10):
+        guess = [num, 5]
+        newGame.runGame(guess)
+        guessAgain = [2, 10 -num]
+        newGame.runGame(guessAgain)
+
+
+    print(board.getUserBoard())
 main()

@@ -1,35 +1,41 @@
 class game:
 
-    def __init__(self, board, boats, userGuess):
+    def __init__(self, board, boats):
         self.boats = boats
         self.boardSize = board.getBoardSize()
         self.userBoard = board.getUserBoard()
         self.gameBoard = self.boats.getGameBoard()
-        self.userGuess = userGuess
         self.shot = 0
-        return self.runGame()
 
-    def runGame(self):
+    def runGame(self, userGuess):
+        self.userGuess = userGuess
         self.shot = self.getGameBoardContents(self.userGuess)
         if self.shot == 'B ':
            return self.hit()
-        elif self.shot == '..':
-            return self.miss()
-        return self.noHitOrMiss()
+        else:
+            self.noHit()
 
     def hit(self):
-        print("HIT")
+        self.setBothBoards(self.userGuess, 'H ')
+        return
+
+    def noHit(self):
+        self.checkShot = self.getUserBoardContents(self.userGuess)
+        if self.checkShot == '..':
+            return  self.miss()
+        elif self.checkShot == 'H ':
+            return print("Previous Hit")    
+        elif self.checkShot == '  ':
+            print("Previous Miss") 
         return
 
     def miss(self):
-        print("MISS")
+        self.setBothBoards(self.userGuess, ' ')
         return
 
-    def noHitOrMiss(self):
-        if self.shot == 'H ':
-            return "Previous Hit"
-        elif self.shot == ' ':
-            return "Previous Miss" 
+    def setBothBoards(self, coOrdinates, prompt):
+        self.userBoard[coOrdinates[0], coOrdinates[1]] = '{:2}'.format(prompt)
+        self.gameBoard[coOrdinates[0], coOrdinates[1]] = '{:2}'.format(prompt)
         return
 
     def getUserBoardContents(self,coOrdinates):
