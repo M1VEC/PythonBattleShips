@@ -2,15 +2,12 @@ class game:
 
     def __init__(self, board, boats):
         self.boats = boats
-        self.boardSize = board.getBoardSize()
         self.userBoard = board.getUserBoard()
         self.gameBoard = self.boats.getGameBoard()
-        self.shot = 0
 
     def runGame(self, userGuess):
         self.userGuess = userGuess
-        self.shot = self.getGameBoardContents(self.userGuess)
-        if self.shot == 'B ':
+        if self.getGameBoardContents(self.userGuess) == 'B ':
            return self.hit()
         else:
             return self.noHit()
@@ -43,8 +40,8 @@ class game:
     def getGameBoardContents(self, coOrdinates):
         return self.gameBoard[coOrdinates[0], coOrdinates[1]]
 
-    def setUserBoard(self, coOrdinates, prompt):
-        self.userBoard[coOrdinates[0], coOrdinates[1]] = '{:2}'.format(prompt)
+    # def setUserBoard(self, coOrdinates, prompt):
+    #     self.userBoard[coOrdinates[0], coOrdinates[1]] = '{:2}'.format(prompt)
 
-    def setGameBoard(self, coOrdinates, prompt):
-        self.gameBoard[coOrdinates[0], coOrdinates[1]] = '{:2}'.format(prompt)    
+    # def setGameBoard(self, coOrdinates, prompt):
+    #     self.gameBoard[coOrdinates[0], coOrdinates[1]] = '{:2}'.format(prompt)    

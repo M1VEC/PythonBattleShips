@@ -1,7 +1,5 @@
-class userInput:
+def getUserGuess():
+    return [userGuess("Enter down co-ordinate: "),userGuess("Enter across co-ordinate: ")]
 
-    def __init__(self):
-        return
-
-    def userGuess(self):
-        return int(input("Enter co: "))
+def userGuess(prompt):
+    return int(input(prompt))
