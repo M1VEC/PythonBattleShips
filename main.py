@@ -6,8 +6,8 @@ import userInteraction
 
 def main():
     gamesetting = gameSettings()
-    gamesetting.setMode('normal')
-    
+    gamesetting.setMode(userInteraction.gameMode())
+
     board = setBoard(gamesetting.getSize())
     boats = addBoats(gamesetting, board)
 
@@ -16,12 +16,13 @@ def main():
 
     for num in range(1,5):
         userGuess = userInteraction.getUserGuess()
-        print(newGame.runGame(userGuess)) 
+        newGame.runGame(userGuess)
         print(board.getUserBoard())
 
-    print("Game Board")
+    print("Game Over")
     print(board.getGameBoard())
 
+    #gameSetting.getTotalBoatHit() returns total amount of hits available 
     #need to check if any boats are left or count down how many are left
     #need to keep track of shots taken
     #maybe add hit to miss ratio or accuracy percentage

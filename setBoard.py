@@ -7,12 +7,11 @@ class setBoard:
         self.boardSize = boardSize
         self.gameBoard =[]                      #gameBoard refers to the board with boat locations
         self.userBoard = []                     #userBoard refers to the board that the user interacts with
-        return self.createBoard()
+        return self.createGameBoard()
 
-    def createBoard(self):
+    def createGameBoard(self):
         self.gameBoard = np.full((self.boardSize[0], self.boardSize[1]),'{:2}'.format(".."))
-        self.labelAxis()
-        self.userBoard = copy.deepcopy(self.gameBoard)
+        return self.labelAxis()
 
     def labelAxis(self):
         for label in range(0,self.boardSize[0]):
@@ -20,6 +19,10 @@ class setBoard:
 
         for label in range(0,self.boardSize[1]):
             self.gameBoard[label,0] = '{:2}'.format(label)
+        return self.createUserBoard()
+    
+    def createUserBoard(self):
+        self.userBoard = copy.deepcopy(self.gameBoard)
         return
 
     def getGameBoard(self):

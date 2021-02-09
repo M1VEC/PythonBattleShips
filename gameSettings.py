@@ -42,5 +42,7 @@ class gameSettings:
     def getBoatLengths(self):
         return self.boatLengths
     
-    
+    def getTotalBoatHits(self):
+        return sum(self.boatLengths)
+        
     
