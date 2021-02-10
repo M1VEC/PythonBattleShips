@@ -2,28 +2,35 @@ from game import game
 from addBoats import addBoats
 from setBoard import setBoard
 from gameSettings import gameSettings
+from scoreBoard import scoreBoard
 import userInteraction
 
 def main():
-    gamesetting = gameSettings()
-    gamesetting.setMode(userInteraction.gameMode())
-
-    board = setBoard(gamesetting.getSize())
-    boats = addBoats(gamesetting, board)
+    gameSetting = gameSettings()
+    gameSetting.setMode(userInteraction.gameMode())
+    board = setBoard(gameSetting)
+    boats = addBoats(gameSetting, board)
 
     newGame = game(board, boats)
-    print(board.getUserBoard())
-
-    for num in range(1,5):
+    userInteraction.printPrompt(board.getUserBoard())
+    scoreTally = scoreBoard(gameSetting)
+    
+    for num in range(0,gameSetting.getmaxShots()):
         userGuess = userInteraction.getUserGuess()
-        newGame.runGame(userGuess)
-        print(board.getUserBoard())
-
-    print("Game Over")
-    print(board.getGameBoard())
-
-    #gameSetting.getTotalBoatHit() returns total amount of hits available 
-    #need to check if any boats are left or count down how many are left
-    #need to keep track of shots taken
-    #maybe add hit to miss ratio or accuracy percentage
+        shotResult = newGame.runGame(userGuess)
+        scoreTally.userShot(shotResult)
+        userInteraction.printPrompt(board.getUserBoard())
+        if scoreTally.getTotalHits() == scoreTally.getAvailableHits():
+            break
+        
+    
+    userInteraction.printPrompt("Game Over")
+    userInteraction.printPrompt(board.getGameBoard())
+    userInteraction.printPrompt("Hits = " + str(scoreTally.getTotalHits()))
+    userInteraction.printPrompt("Miss = " + str(scoreTally.getTotalMiss()))
+    userInteraction.printPrompt("Total shots = " + str(scoreTally.gettotalValidShots()))
+    userInteraction.printPrompt("Total boats = " + str(scoreTally.getAvailableHits()))
+    
 main()
+
+    #maybe add hit to miss ratio or accuracy percentage

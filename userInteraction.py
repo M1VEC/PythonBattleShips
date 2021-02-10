@@ -8,3 +8,5 @@ def getUserGuess():
 def userGuess(prompt):
     return int(input(prompt))
 
+def printPrompt(prompt):
+    return print(prompt)

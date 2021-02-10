@@ -3,8 +3,8 @@ import copy
 
 class setBoard:
 
-    def __init__(self, boardSize):
-        self.boardSize = boardSize
+    def __init__(self, gameSetting):
+        self.boardSize = gameSetting.getSize()
         self.gameBoard =[]                      #gameBoard refers to the board with boat locations
         self.userBoard = []                     #userBoard refers to the board that the user interacts with
         return self.createGameBoard()
