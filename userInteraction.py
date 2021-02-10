@@ -16,9 +16,13 @@ def userGuess(prompt):
 def printPrompt(prompt):
     return print(prompt)
 
-def printScoreTally(scoreTally):
+
+def printScoreTally(scoreTally, board):
+    print("Game Over!")
+    print(board.getGameBoard())
     print("Hits = " + str(scoreTally.getTotalHits()))
     print("Miss = " + str(scoreTally.getTotalMiss()))
     print("Total shots = " + str(scoreTally.gettotalValidShots()))
     print("Total boats = " + str(scoreTally.getAvailableHits()))
+    print("Total boats left= " + str(scoreTally.getTotalLeft()))
     print("Hit accuracy = " + str(round(scoreTally.getHitAccuracy())) + "%")

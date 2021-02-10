@@ -38,10 +38,13 @@ class scoreBoard:
     def getAvailableHits(self):
         return self.availableBoatHits
 
+    def getTotalLeft(self):
+        return self.availableBoatHits - self.totalHits   
+
     def getHitAccuracy(self):
         self.hitAccuracy = (self.totalHits / self.totalValidShots) * 100
         return self.hitAccuracy
-        
+
     def gettotalValidShots(self):
         self.totalValidShots = self.totalHits + self.totalMiss
         return self.totalValidShots

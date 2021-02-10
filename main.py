@@ -16,15 +16,12 @@ def main():
     scoreTally = scoreBoard(gameSetting)
     
     for num in range(0,gameSetting.getmaxShots()):
-        userGuess = userInteraction.getUserGuess()
-        shotResult = newGame.runGame(userGuess)
+        shotResult = newGame.runGame(userInteraction.getUserGuess())
         scoreTally.userShot(shotResult)
         userInteraction.printPrompt(board.getUserBoard())
         if scoreTally.getTotalHits() == scoreTally.getAvailableHits():
             break
         
-    userInteraction.printPrompt("Game Over")
-    userInteraction.printPrompt(board.getGameBoard())
-    userInteraction.printScoreTally(scoreTally)
+    userInteraction.printScoreTally(scoreTally, board)
     
 main()
