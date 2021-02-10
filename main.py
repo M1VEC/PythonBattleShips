@@ -8,15 +8,19 @@ import userInteraction
 def main():
     gameSetting = gameSettings()
     gameSetting.setMode(userInteraction.gameMode())
-    board = setBoard(gameSetting)
-    boats = addBoats(gameSetting, board)
+    boardSize = gameSetting.getSize()
+    board = setBoard(boardSize)
     
+    boats = addBoats(gameSetting, board)
     newGame = game(board, boats)
     userInteraction.printPrompt(board.getUserBoard())
     scoreTally = scoreBoard(gameSetting)
     
     for num in range(0,gameSetting.getmaxShots()):
-        shotResult = newGame.runGame(userInteraction.getUserGuess())
+        userGuess = userInteraction.getUserGuess(boardSize)
+        if userGuess[0] == 0 or userGuess[1] == 0:
+            break
+        shotResult = newGame.runGame(userGuess)
         scoreTally.userShot(shotResult)
         userInteraction.printPrompt(board.getUserBoard())
         if scoreTally.getTotalHits() == scoreTally.getAvailableHits():
