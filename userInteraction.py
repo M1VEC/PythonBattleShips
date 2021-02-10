@@ -16,7 +16,6 @@ def userGuess(prompt):
 def printPrompt(prompt):
     return print(prompt)
 
-
 def printScoreTally(scoreTally, board):
     print("Game Over!")
     print(board.getGameBoard())

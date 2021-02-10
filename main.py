@@ -10,7 +10,7 @@ def main():
     gameSetting.setMode(userInteraction.gameMode())
     board = setBoard(gameSetting)
     boats = addBoats(gameSetting, board)
-
+    
     newGame = game(board, boats)
     userInteraction.printPrompt(board.getUserBoard())
     scoreTally = scoreBoard(gameSetting)

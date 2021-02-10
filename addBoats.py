@@ -2,11 +2,11 @@ from boat import boat
 
 class addBoats:
     
-    def __init__(self, gameMode, board):
-        self.boardSize = gameMode.getSize()
-        self.numberOfBoats = gameMode.getBoatCount()
-        self.boatLengths = gameMode.getBoatLengths()
+    def __init__(self, gameSettings, board):
+        self.numberOfBoats = gameSettings.getBoatCount()
+        self.boatLengths = gameSettings.getBoatLengths()
         self.boat = boat
+        self.boardSize = board.getBoardSize()
         self.gameBoard = board.getGameBoard()
         return self.addGameBoats()
     
