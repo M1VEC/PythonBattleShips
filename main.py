@@ -23,14 +23,8 @@ def main():
         if scoreTally.getTotalHits() == scoreTally.getAvailableHits():
             break
         
-    
     userInteraction.printPrompt("Game Over")
     userInteraction.printPrompt(board.getGameBoard())
-    userInteraction.printPrompt("Hits = " + str(scoreTally.getTotalHits()))
-    userInteraction.printPrompt("Miss = " + str(scoreTally.getTotalMiss()))
-    userInteraction.printPrompt("Total shots = " + str(scoreTally.gettotalValidShots()))
-    userInteraction.printPrompt("Total boats = " + str(scoreTally.getAvailableHits()))
-    userInteraction.printPrompt("Hit accuracy = " + str(round(scoreTally.getHitAccuracy())) + "%")
+    userInteraction.printScoreTally(scoreTally)
     
 main()
-    
