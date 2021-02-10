@@ -1,5 +1,5 @@
 class gameSettings:
-
+    
     def __init__(self):
         self.size = []
         self.boatCount = 0
@@ -33,7 +33,7 @@ class gameSettings:
         self.size = [13,13]
         self.boatCount = 7
         self.boatLengths = [3, 4, 2, 5, 2, 4, 3]
-        self.maxShots = 50
+        self.maxShots = 60
         return
 
     def getSize(self):
