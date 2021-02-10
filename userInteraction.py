@@ -1,6 +1,11 @@
 def gameMode():
-    print("easy     normal      hard")
-    return  input("Select difficulty: ")
+    modes = ("easy", "normal", "hard")
+    printPrompt("Select difficulty:   easy     normal      hard")
+    mode = input()
+    if mode in modes:
+        return mode
+    else:
+        return gameMode()
 
 def getUserGuess():
     return [userGuess("Enter down co-ordinate: ") ,userGuess("Enter across co-ordinate: ")]

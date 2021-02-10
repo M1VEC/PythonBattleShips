@@ -30,7 +30,7 @@ def main():
     userInteraction.printPrompt("Miss = " + str(scoreTally.getTotalMiss()))
     userInteraction.printPrompt("Total shots = " + str(scoreTally.gettotalValidShots()))
     userInteraction.printPrompt("Total boats = " + str(scoreTally.getAvailableHits()))
+    userInteraction.printPrompt("Hit accuracy = " + str(round(scoreTally.getHitAccuracy())) + "%")
     
 main()
-
-    #maybe add hit to miss ratio or accuracy percentage
+    

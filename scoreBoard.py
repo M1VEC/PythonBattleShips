@@ -17,10 +17,6 @@ class scoreBoard:
             self.setInvalidShot()
         return
 
-    def gettotalValidShots(self):
-        self.totalValidShots = self.totalHits + self.totalMiss
-        return self.totalValidShots
-    
     def setHitShot(self):
         self.totalHits += 1
         return self.totalHits
@@ -41,3 +37,12 @@ class scoreBoard:
     
     def getAvailableHits(self):
         return self.availableBoatHits
+
+    def getHitAccuracy(self):
+        self.hitAccuracy = (self.totalHits / self.totalValidShots) * 100
+        return self.hitAccuracy
+        
+    def gettotalValidShots(self):
+        self.totalValidShots = self.totalHits + self.totalMiss
+        return self.totalValidShots
+    
