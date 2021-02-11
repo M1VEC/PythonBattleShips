@@ -1,3 +1,6 @@
+from setBoard import setBoard
+from addBoats import addBoats
+
 class gameSettings:
     
     def __init__(self):
@@ -8,12 +11,17 @@ class gameSettings:
     def setMode(self, gameMode):
         self.gameMode = gameMode
         if self.gameMode == 'easy':
-            return self.setEasy()
+            self.setEasy()
         elif self.gameMode == 'normal':
-            return self.setNormal()
+            self.setNormal()
         elif self.gameMode == 'hard':
-            return self.setHard()
-        return
+            self.setHard()
+        return self.createNewBoard()
+    
+    def createNewBoard(self):
+        self.board = setBoard(self.size)
+        return addBoats(self)
+        
 
     def setEasy(self):
         self.size = [6,6]
@@ -50,3 +58,9 @@ class gameSettings:
         
     def getmaxShots(self):
         return self.maxShots
+    
+    def getGameBoard(self):
+        return self.board.getGameBoard()
+
+    def getUserBoard(self):
+        return self.board.getUserBoard()

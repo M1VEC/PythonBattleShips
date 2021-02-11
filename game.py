@@ -1,9 +1,8 @@
 class game:
 
-    def __init__(self, board, boats):
-        self.boats = boats
-        self.userBoard = board.getUserBoard()
-        self.gameBoard = self.boats.getGameBoard()
+    def __init__(self, gameSetting):
+        self.userBoard = gameSetting.getUserBoard()
+        self.gameBoard = gameSetting.getGameBoard()
 
     def runGame(self, userGuess):
         self.userGuess = userGuess

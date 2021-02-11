@@ -21,9 +21,9 @@ def userGuess(prompt):
 def printPrompt(prompt):
     return print(prompt)
 
-def printScoreTally(scoreTally, board):
+def printScoreTally(scoreTally, gameSetting):
     print("Game Over!")
-    print(board.getGameBoard())
+    print(gameSetting.getGameBoard())
     if scoreTally.gettotalValidShots() > 0:
         print("Hits = " + str(scoreTally.getTotalHits()))
         print("Miss = " + str(scoreTally.getTotalMiss()))
