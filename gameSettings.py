@@ -2,6 +2,7 @@ from setBoard import setBoard
 from addBoats import addBoats
 
 class gameSettings:
+    #Responisble for setting the game difficulty, the game and user boards and then placing the boats.
     
     def __init__(self):
         self.size = []
